@@ -3,7 +3,6 @@ services:
   - docker
 
 install:
-  - mkdir docker
   - docker pull blang/latex:ubuntu
   - docker save blang/latex:ubuntu | gzip > docker/latex.tar.gz
 
