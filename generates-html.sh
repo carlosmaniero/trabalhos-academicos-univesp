@@ -17,18 +17,13 @@ function get_github_url {
     echo "https://github.com/carlosmaniero/trabalhos-academicos-univesp/blob/master/$1"
 }
 
-function get_file_link {
-    tex_link="./$1.tex"
-    pdf_link="./$1.pdf"
-    get_link $pdf_link "$(get_text_title $tex_link) (pdf)"
-}
-
 function get_file_row {
     cat << _EOF_
         <tr>
             <td>$(get_file_date $1.tex)</td>
-            <td>$(get_file_link $1)</td>
-            <td>$(get_link $1.tex "Download")</td>
+            <td>$(get_text_title $1.tex)</td>
+            <td>$(get_link $1.tex "PDF")</td>
+            <td>$(get_link $1.tex "LaTeX")</td>
             <td>$(get_link "$(get_github_url $1.tex)" "Github")</td>
         </tr>
 _EOF_
@@ -92,7 +87,9 @@ cat << _EOF_
         <tr>
           <th>Ultima atualização</th>
           <th>Título</th>
-          <th colspan=2>Arquivo .tex</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
