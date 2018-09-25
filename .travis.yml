@@ -11,6 +11,10 @@ before_script:
 
 script:
   - ./latexdockercmd.sh bash ./compile-all.sh
+  - mkdir dist
+  - cp index.html > dist/
+  - cp *.pdf > dist/
+  - cp *.tex > dist/
 
 cache:
   directories:
@@ -19,6 +23,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
-  local_dir: .
+  local_dir: dist
   on:
     branch: master
