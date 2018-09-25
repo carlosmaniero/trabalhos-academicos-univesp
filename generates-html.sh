@@ -3,7 +3,7 @@ function get_text_title {
 }
 
 function get_file_date {
-    date -r $1 "+%Y-%m-%d %H:%M:%S"
+    git log --date=format:'%Y-%m-%d %H:%M:%S' -1 --format="%ad" -- $1
 }
 
 function get_link {
