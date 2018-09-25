@@ -1,14 +1,44 @@
-FILES=`ls *.pdf`
-
 function get_text_title {
     cat $1 | grep "\\\\titulo" | cut -d "{" -f2 | cut -d "}" -f1
 }
 
-function links {
-	for file in $FILES
+function get_file_date {
+    date -r $1 "+%Y-%m-%d %H:%M:%S"
+}
+
+function get_link {
+    title=$2
+    url=$1
+
+    echo "<a href=\"$url\">$title</a>"
+}
+
+function get_github_url {
+    echo "https://github.com/carlosmaniero/trabalhos-academicos-univesp/blob/master/$1"
+}
+
+function get_file_link {
+    tex_link="./$1.tex"
+    pdf_link="./$1.pdf"
+    get_link $pdf_link "$(get_text_title $tex_link) (pdf)"
+}
+
+function get_file_row {
+    cat << _EOF_
+        <tr>
+            <td>$(get_file_date $1.tex)</td>
+            <td>$(get_file_link $1)</td>
+            <td>$(get_link $1.tex "Download")</td>
+            <td>$(get_link "$(get_github_url $1.tex)" "Github")</td>
+        </tr>
+_EOF_
+}
+
+function get_files_rows {
+	for file in `ls *.tex`
 	do
-        file=`basename $file .pdf`
-        echo "<tr><td>$(date -r $file.tex "+%Y-%m-%d %H:%M:%S")</td><td><a href=\"./$file.pdf\">$(get_text_title $file.tex)</a></td></tr>"
+        file=`basename $file .tex`
+        get_file_row $file
 	done
 }
 
@@ -38,10 +68,16 @@ cat << _EOF_
             background: black;
             border: 0;
         }
+        td, th {
+            padding: 15px;
+            border-bottom: 1px solid black;
+        }
+        td:first-child, th:first-child {
+            padding-left: 0px;
+        }
         th {
             text-align: left;
             padding-right: 10px;
-            padding-bottom: 5px;
         }
     </style>
   </head>
@@ -51,16 +87,16 @@ cat << _EOF_
         <h1>Trabalhos acadêmicos</h1>
         <h2>Engenharia da Computação - UNIVESP</h2>
     </hgroup>
-    <hr />
     <table>
       <thead>
         <tr>
           <th>Ultima atualização</th>
           <th>Título</th>
+          <th colspan=2>Arquivo .tex</th>
         </tr>
       </thead>
       <tbody>
-          $(links)
+          $(get_files_rows)
       </tbody>
     </table>
   </body>
