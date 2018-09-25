@@ -1,4 +1,8 @@
-sudo: false
+sudo: required
+
+services:
+  - docker
+
 script:
   - ./latexdockercmd.sh bash ./compile-all.sh producao-de-textos-atividade-semana-3.tex 
 deploy:
