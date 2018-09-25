@@ -4,10 +4,6 @@ services:
 
 install:
   - docker pull blang/latex:ubuntu
-  - docker save blang/latex:ubuntu | gzip > docker/latex.tar.gz
-
-before_script:
-  - gzip -dc docker/latex.tar.gz | docker load
 
 script:
   - ./latexdockercmd.sh bash ./compile-all.sh
@@ -16,9 +12,6 @@ script:
   - cp *.pdf > dist/
   - cp *.tex > dist/
 
-cache:
-  directories:
-  - docker
 deploy:
   provider: pages
   skip_cleanup: true
