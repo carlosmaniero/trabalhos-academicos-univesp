@@ -1,9 +1,9 @@
 function get_text_title {
-    cat $1 | grep "\\\\titulo" | cut -d "{" -f2 | cut -d "}" -f1
+    cat ./atividades/$1 | grep "\\\\titulo" | cut -d "{" -f2 | cut -d "}" -f1
 }
 
 function get_file_date {
-    git log --date=format:'%Y-%m-%d %H:%M:%S' -1 --format="%ad" -- $1
+    git log --date=format:'%Y-%m-%d %H:%M:%S' -1 --format="%ad" -- ./atividades/$1
 }
 
 function get_link {
@@ -14,7 +14,7 @@ function get_link {
 }
 
 function get_github_url {
-    echo "https://github.com/carlosmaniero/trabalhos-academicos-univesp/blob/master/$1"
+    echo "https://github.com/carlosmaniero/trabalhos-academicos-univesp/blob/master/atividades/$1"
 }
 
 function get_file_row {
@@ -22,7 +22,7 @@ function get_file_row {
         <tr>
             <td>$(get_file_date $1.tex)</td>
             <td>$(get_text_title $1.tex)</td>
-            <td>$(get_link $1.tex "PDF")</td>
+            <td>$(get_link $1.pdf "PDF")</td>
             <td>$(get_link $1.tex "LaTeX")</td>
             <td>$(get_link "$(get_github_url $1.tex)" "Github")</td>
         </tr>
@@ -30,9 +30,9 @@ _EOF_
 }
 
 function get_files_rows {
-	for file in `ls *.tex`
+	for file in `ls ./atividades/*.tex`
 	do
-        file=`basename $file .tex`
+        file="$(basename $file .tex)"
         get_file_row $file
 	done
 }
