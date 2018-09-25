@@ -1,0 +1,10 @@
+sudo: false
+script:
+  - ./latexdockercmd.sh bash ./compile-all.sh producao-de-textos-atividade-semana-3.tex 
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: dist
+  on:
+    branch: master
