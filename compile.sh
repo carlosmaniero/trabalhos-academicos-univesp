@@ -1,4 +1,6 @@
-pushd atividades/ > /dev/null
+FILE_PATH="./atividades"
+
+pushd $FILE_PATH/ > /dev/null
 
 echo "limpando arquivos..."
 ../latex-clean.sh
