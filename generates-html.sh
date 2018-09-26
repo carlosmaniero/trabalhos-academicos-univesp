@@ -110,7 +110,7 @@ cat << _EOF_
           <thead>
             <tr>
               <th>Título</th>
-              <th>Ultima atualização</th>
+              <th>Última atualização</th>
               <th class="action"></th>
               <th class="action"></th>
               <th class="action"></th>
