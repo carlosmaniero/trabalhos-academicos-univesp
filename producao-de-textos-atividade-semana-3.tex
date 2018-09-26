@@ -1,0 +1,281 @@
+\documentclass[
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel.
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% Pacotes básicos
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+\usepackage{lipsum}				% para geração de dummy text
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Atividade avaliativa da semana 3}
+\autor{Carlos Antonio Marques Maniero --- 1824312}
+\local{UNIVESP}
+\data{2018}
+\orientador{Profa. Dra. Silvia M. Gasparian Colello}
+\instituicao{%
+  Univesidade Virtual do Estado de São Paulo --- UNIVESP
+  \par
+  Curso de Engenharia da Computação
+  \par
+  Diciplina de Produção de Textos
+}
+\tipotrabalho{Atividade Avaliativa}
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
+\preambulo{Atividade avaliativa apresentado como
+    exigência parcial para Avaliação do
+    curso da Diciplina de Produção de textos
+    do curso de Engenharia da Computação pela UNIVESP.}
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+
+\hypersetup{pdftitle={\@title},
+            pdfauthor={\@author},
+            pdfsubject={\imprimirpreambulo},
+            pdfcreator={LaTeX with abnTeX2},
+            pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
+            colorlinks=true,       		% false: boxed links; true: colored links
+            linkcolor=blue,          	% color of internal links
+            citecolor=blue,        		% color of links to bibliography
+            filecolor=magenta,      		% color of file links
+            urlcolor=blue,
+            bookmarksdepth=4}
+\makeatother
+% ---
+
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa{}
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Epígrafe
+% ---
+\begin{epigrafe}
+    \vspace*{\fill}
+	\begin{flushright}
+        \begin{adjustwidth}{7.5cm}{}
+        \textit{``A língua materna, seu vocabulário e sua estrutura gramatical,
+        não conhecemos por meio de dicionários ou manuais de gramática,
+        mas graças aos enunciados concretos que ouvimos e reproduzimos
+        na comunicação efetiva com as pessoas que nos rodeiam.}
+        \end{adjustwidth}
+        \textit{Mikhail Bakhtin}
+	\end{flushright}
+\end{epigrafe}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage{}
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual{}
+
+% ---
+% Exercício 1
+% ---
+\chapter{Exercício 1}
+
+Nas primeiras três semanas da disciplina, estudamos conceitos
+relacionados ao tema da língua.
+Com base no que foi visto, explique os seguintes conceitos:
+
+\section{Letramento}
+Letramento é definido por \hbox{\cite{soares}} como
+``Estado ou condição de quem não apenas sabe ler e escrever,
+mas cultiva e exerce as práticas sociais que usam a escrita'',
+ou seja, o estado ou condição além da decodificação em que o
+indivíduo torna-se usuário da lingua escrita usando-a como
+ferramenta para suas praticas sociais.
+
+\section{Analfabetismo funcional}
+Podemos compreender o analfabetismo funcional como o não letramento.
+
+\par
+
+O indivíduo que, sendo capaz de decodificar a língua escrita
+não conhece suas estruturas, nem é capaz de exercer suas praticas
+sociais.
+
+\section{Gramática descritiva}
+``É a que orienta o trabalho dos linguistas, cuja preocupação é
+descrever e/ou explicar as línguas tais como elas são faladas.''
+\hbox{\cite{possenti}}
+
+\par
+
+A gramática descritiva, descreve a língua falada, mesmo que para
+tal seja necessário ferir a norma culta, não estando portanto
+em conformidade com a gramática normativa.
+
+\section{Língua portuguesa de expressão brasileira}
+A língua é um elemento vivo da nossa cultura. O Brasil é uma
+grande intersecção de culturas com elementos oriundos da
+cultura africana devido ao modelo escravocrata aqui adotado no passado,
+de diversas regiões europeias por meio do processo imigratório e indígena
+que aqui habitavam antes da chegada dos portugueses.
+
+\par
+
+Essa intersecção gerou o que chamamos de ``expressão brasileira'',
+que embora siga o mesmo conjunto de normas da língua portuguesa de
+expressão portuguesa, possui sua própria identidade.
+\par
+
+Podemos notar essas variações linguísticas mesmo dentro de um mesmo
+estado. O Português falado na região central de São Paulo, por exemplo,
+tem expressão diferente em comparação ao interior do estado.
+
+\section{Concepção dialógica de língua}
+
+A concepção dialógica de língua tem como preceito que todo discurso
+se apoia no discurso de outrem.
+
+\begin{citacao}
+A orientação dialógica é naturalmente um fenômeno próprio a
+todo discurso. Trata-se da orientação natural de qualquer discurso
+vivo. Em todos os seus caminhos até o objeto, em todas
+as direções, o discurso se encontra com o discurso de outrem
+e não pode deixar de participar, com ele, de uma interação
+viva e tensa. Apenas o Adão mítico que chegou com a primeira
+palavra num mundo virgem, ainda não desacreditado, somente
+este Adão podia realmente evitar por completo esta mútua
+orientação dialógica do discurso alheio para o objeto. Para o
+discurso humano, concreto e histórico, isso não é possível:
+só em certa medida e convencionalmente é que pode dela se
+afastar.
+\hbox{\cite{bakhtin}}
+\end{citacao}
+
+% ---
+% Exercício 2
+% ---
+\chapter{Exercício 2}
+
+Escreva uma frase que exemplifique as seguintes funções da língua:
+
+\section{Função conativa}
+
+A função conativa tem propósito apelativo, por isso, pode também
+ser definida como função apelativa. Tem como principal característica
+o intuito de convencer o interlocutor.
+
+\par
+Alguns exemplos são: \textit{``Pé de pai pede Rider''} e
+\textit{``Fisk, todo mundo fala bem''}.
+
+\section{Função emotiva}
+A função emotiva como o próprio nome sugere, usa da subjetividade com
+a finalidade de emocionar o interlocutor.
+
+% ---
+% Exercício 3
+% ---
+\chapter{Exercício 3}
+
+A linguagem pode se manifestar de diversas formas.
+Explique a diferença entre a linguagem sonora e a linguagem verbal.
+
+\section{Linguagem sonora e Linguagem Verbal}
+A linguagem verbal utiliza de palavras na comunicação.
+\par
+A linguagem sonora está cada vez mais presente no nosso dia-a-dia.
+Ao receber uma mensagem no celular, o usuário do dispositivo é
+notificado através de um sinal sonoro e isso já o o suficiente
+para o interlocutor entender a mensagem, não há necessidade de
+palavras nesse contexto, um simples sinal sonoro já é o suficiente.
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual{}
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{producao-de-textos-atividade-semana-3}
+
+\end{document}
