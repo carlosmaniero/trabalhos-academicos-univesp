@@ -7,10 +7,6 @@ install:
 
 script:
   - ./latexdockercmd.sh bash ./compile-all.sh
-  - mkdir dist
-  - cp index.html dist/
-  - cp *.pdf dist/
-  - cp *.tex dist/
 
 deploy:
   provider: pages
