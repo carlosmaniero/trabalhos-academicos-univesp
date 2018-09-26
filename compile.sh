@@ -1,4 +1,4 @@
-pushd atividades/
+pushd atividades/ > /dev/null
 
 echo "limpando arquivos..."
 ../latex-clean.sh
@@ -12,4 +12,4 @@ pdflatex ${1} > /dev/null
 echo "Limpando arquivos"
 ../latex-clean.sh
 
-popd
+popd > /dev/null
